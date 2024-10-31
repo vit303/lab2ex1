@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace lab2
 {
-    internal class Vector
+    public class Vector
     {
         protected List<double> vector = new List<double>();
 
@@ -56,19 +56,20 @@ namespace lab2
 
         public static bool operator !=(Vector v1, Vector v2)
         {
+            bool flag = false;
             if (v1.vector.Count > v2.vector.Count || v1.vector.Count < v2.vector.Count) { 
-                return false;
+                flag = false;
             }
             for (int i = 0; i < v1.vector.Count; i++) {
                 if (v1.vector[i] != v2.vector[i])
                 {
-                    return false;
+                    flag = false;
                 }
                 else {
-                    return true;
+                    flag = true;
                 }
             }
-            return true;
+            return flag;
         }
 
         public static Vector operator *(Vector v, double n) {
